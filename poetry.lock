@@ -16,6 +16,7 @@ version = "1.3.2"
 
 [package.dependencies]
 numpy = ">=1.13.3"
+matplotlib = ">=3.3.3"
 
 [metadata]
 content-hash = "8263e8ad2d389e5ae50a65c705ed266c6ca13301a00ac542cc255d18019cd734"
