@@ -37,7 +37,7 @@ def eigen_build(k0, n, dx, dy, x_boundary=None, y_boundary=None):
     # This statement is kind of confusing but is the equivilent to doing a tensor
     # contraction. So each row operation is apended to the diagonals of a larger
     # matrix so we can operate on the whole grid at once.
-    Ux = sps.block_diag([Ux_temp for i in range(ny)], format="csr")
+    Ux = sps.block_diag([Ux_temp for _ in range(ny)], format="csr")
 
     # %% Now we can construct all the other operators
 
@@ -50,8 +50,8 @@ def eigen_build(k0, n, dx, dy, x_boundary=None, y_boundary=None):
     epsy = np.empty(nx * ny)
     epszi = np.empty(nx * ny)
     count = 0
-    for j in range(0, ny):
-        for i in range(0, nx):
+    for j in range(ny):
+        for i in range(nx):
             epsx[count] = n[i, j, 0] ** 2
             epsy[count] = n[i, j, 1] ** 2
             epszi[count] = 1.0 / n[i, j, 2] ** 2
@@ -81,7 +81,7 @@ def eigen_build(k0, n, dx, dy, x_boundary=None, y_boundary=None):
         - (k0 ** 2 * I + Uy * epszi * Vy) * Vx * Uy / k0 ** 2
     )
 
-    print("and we are done (after {} secs).".format(time.time() - t))
+    print(f"and we are done (after {time.time() - t} secs).")
 
     # Ok we should be able to do the final assembly now !!!
     P = sps.vstack([sps.hstack([Pxx, Pxy]), sps.hstack([Pyx, Pyy])])

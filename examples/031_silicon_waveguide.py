@@ -24,8 +24,7 @@ def refractive(lam):
         3.0065 + 0.05694 / (lam ** 2 - 0.05658) - 0.01682 * lam ** 2,
     ]
 
-    index = [ns ** 0.5 for ns in n_square]
-    return index
+    return [ns ** 0.5 for ns in n_square]
 
 
 def get_waveguide(

@@ -21,7 +21,7 @@ def solve(P, beta_trial, E_trial=None, neigs=1):
     Ex, Ey = np.split(E, 2)
 
     Ex, Ey = np.transpose(Ex), np.transpose(Ey)
-    print("{} secs later we have the final solution.".format(time.time() - t))
+    print(f"{time.time() - t} secs later we have the final solution.")
 
     return beta_squared ** 0.5, Ex, Ey
 

@@ -13,14 +13,13 @@ class phil_class:
         self.mats = None
 
         if x_max is None and y_max is None:
-            if dx is not None and dy is not None:
-                self.dx = dx
-                self.dy = dy
-                self.x = np.array(range(self.num_x)) * self.dx
-                self.y = np.array(range(self.num_y)) * self.dy
-            else:
+            if dx is None or dy is None:
                 raise Exception("Gonna need some dimensions yo!")
 
+            self.dx = dx
+            self.dy = dy
+            self.x = np.array(range(self.num_x)) * self.dx
+            self.y = np.array(range(self.num_y)) * self.dy
         if dx is None and dy is None:
             if x_max is not None and y_max is not None:
                 """
