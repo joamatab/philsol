@@ -1,6 +1,7 @@
 """Solve Ex, Ey fields for the fundamental mode of a square silica waveguide.
 """
 
+
 import numpy as np
 import scipy.constants as cst
 import matplotlib.pyplot as plt
@@ -44,7 +45,7 @@ Ey_fields = [np.reshape(E_vec, (points, points)) for E_vec in Ey]
 # For each eigenmode, create a real field plot for x-polarised light
 for i, E in enumerate(Ey_fields):
     plt.figure(figsize=(8, 4))
-    plt.suptitle("Effective index: {}".format(neff))
+    plt.suptitle(f"Effective index: {neff}")
 
     neff = beta[i] * lam / (2.0 * cst.pi)
 

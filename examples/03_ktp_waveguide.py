@@ -14,8 +14,7 @@ def refractive(lam):
         3.0065 + 0.05694 / (lam ** 2 - 0.05658) - 0.01682 * lam ** 2,
     ]
 
-    index = [ns ** 0.5 for ns in n_square]
-    return index
+    return [ns ** 0.5 for ns in n_square]
 
 
 # We define the size of the simulation window (note there is automatically
@@ -61,14 +60,14 @@ def n_build(lam):
         for i in range(3)
     ]
 
-    # Now we assemble a matrix we can give to the solver
-    n = np.dstack(
+    return np.dstack(
         [
-            np.asarray(axis.getdata(), dtype=np.float64).reshape((num_y, num_x))
+            np.asarray(axis.getdata(), dtype=np.float64).reshape(
+                (num_y, num_x)
+            )
             for axis in geom
         ]
     )
-    return n
 
 
 x = np.linspace(-simulation_width / 2.0, simulation_width / 2.0, num_x)

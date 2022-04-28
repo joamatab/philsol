@@ -91,7 +91,7 @@ for i, E in enumerate(Ex_fields):
 
     plt.pcolor(x * 1.0e6, y * 1.0e6, np.real(E))
 
-    plt.title("Effective index: {}".format(neff))
+    plt.title(f"Effective index: {neff}")
     plt.xlabel("x (microns)")
     plt.ylabel("y (microns)")
 
